@@ -27,8 +27,8 @@ const OnboardingScreens = ({navigation}) => {
       showSkipButton={true}
       showDoneButton={true}
       data={OnboardScreens}
-    onSkip={()=>navigation.replace('login')}
-    onDone={()=>navigation.replace('login')}
+    onSkip={()=>navigation.replace('started')}
+    onDone={()=>navigation.replace('started')}
       
     //   skipLabel={()=>{
     //     return(
