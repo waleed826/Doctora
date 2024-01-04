@@ -7,12 +7,35 @@ import CustomTextInput from '../components/CustomTextInput'
 import CustomButton from '../components/CustomButton'
 import AccountButton from '../components/AccountButton'
 import CustomModal from '../components/CustomModal';
+import auth from '@react-native-firebase/auth';
 
 const LoginScreens = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalData, setModalData] = useState('');
   const [modalNameData, setModalNameData] = useState('');
 
+//   const array = {
+//     id:1,
+//     email:'John@gmail.com',
+//     username:'johnd',
+//     password:'m38rmF$',
+//     name:{
+//         firstname:'John',
+//         lastname:'Doe'
+//     },
+//     address:{
+//         city:'kilcoole',
+//         street:'7835 new road',
+//         number:3,
+//         zipcode:'12926-3874',
+//         geolocation:{
+//             lat:'-37.3159',
+//             long:'81.1496'
+//         }
+//     },
+//     phone:'1-570-236-7033'
+// }
+// console.log('KEYSSS======>>>>' , Object.keys(array))
   const openModal = () => {
     setModalData('Yeay! Welcome Back Once again you login successfully into Doctora app');
     setModalNameData('loginScreen')
@@ -22,6 +45,7 @@ const LoginScreens = ({ navigation }) => {
   const closeModal = () => {
     setModalVisible(false);
   }
+  
   return (
     <KeyboardAwareScrollView contentContainerStyle={{ backgroundColor: theme.colors.primary, justifyContent: 'space-evenly', flexGrow: 1 }}>
       <View style={{ flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between', marginHorizontal: 25, }}>
@@ -41,14 +65,16 @@ const LoginScreens = ({ navigation }) => {
         <CustomTextInput placeholder='Enter Your Password' />
       </View>
       <View>
-        {/* <Button title="Open Modal" onPress={openModal} /> */}
         <CustomModal visible={modalVisible} closeModal={closeModal} customData={[modalNameData,modalData]} />
       </View>
       <View style={{}}>
         <Text style={styles.txt} onPress={() => Alert.alert('added soon')}>Forgot Password?</Text>
       </View>
       <View style={{ alignItems: 'center' }}>
-        <CustomButton Text='Login' onPress={openModal} color={theme.colors.secondry} />
+        <CustomButton Text='Login' 
+        // onPress={()=>openModal()} 
+        onPress={()=>auth()}
+        color={theme.colors.secondry} />
       </View>
       <Text style={{ color: 'rgba(113, 119, 132, 1)', textAlign: 'center' }}>Don’t have an account?<Text style={{ color: theme.colors.secondry }} onPress={() => navigation.navigate('signup')}> Sign Up</Text></Text>
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>

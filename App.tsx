@@ -7,6 +7,9 @@ import OnboardingScreens from './source/screens/OnboardingScreens';
 import GetStarted from './source/screens/GetStarted';
 import LoginScreens from './source/screens/LoginScreen';
 import SignUpScreen from './source/screens/SignUpScreen';
+import HomeScreen from './source/screens/HomeScreen';
+import CustomModal from './source/components/CustomModal';
+import BottomTab from './source/screens/TabNavigation/BottomTab';
 
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -18,15 +21,19 @@ const App = () => {
   },[])
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='login' screenOptions={{headerShown:false,}}>
+      <Stack.Navigator initialRouteName='tab' screenOptions={{headerShown:false,}}>
         {
           showSplash ? <Stack.Screen name='splash' component={SplashScreen}  />
           :
           <Stack.Screen name='onboard' component={OnboardingScreens}  />
         }
+        {/* <Stack.Group children={CustomModal} navigationKey='modal'/> */}
         <Stack.Screen name='started' component={GetStarted} />
         <Stack.Screen name='login' component={LoginScreens} />
         <Stack.Screen name='signup' component={SignUpScreen} />
+        {/* <Stack.Screen name='modal' component={CustomModal} /> */}
+        <Stack.Screen name='tab' component={BottomTab} />
+        <Stack.Screen name='home' component={HomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   )
