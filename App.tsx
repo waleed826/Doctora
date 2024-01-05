@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SplashScreen from './source/screens/SplashScreen';
 import OnboardingScreens from './source/screens/OnboardingScreens';
 import GetStarted from './source/screens/GetStarted';
-import LoginScreens from './source/screens/LoginScreen';
+// import LoginScreens from './source/screens/LoginScreen';
 import SignUpScreen from './source/screens/SignUpScreen';
 import HomeScreen from './source/screens/HomeScreen';
 import CustomModal from './source/components/CustomModal';
@@ -21,7 +21,7 @@ const App = () => {
   },[])
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='tab' screenOptions={{headerShown:false,}}>
+      <Stack.Navigator initialRouteName='signup' screenOptions={{headerShown:false,}}>
         {
           showSplash ? <Stack.Screen name='splash' component={SplashScreen}  />
           :
@@ -29,7 +29,7 @@ const App = () => {
         }
         {/* <Stack.Group children={CustomModal} navigationKey='modal'/> */}
         <Stack.Screen name='started' component={GetStarted} />
-        <Stack.Screen name='login' component={LoginScreens} />
+        {/* <Stack.Screen name='login' component={LoginScreens} /> */}
         <Stack.Screen name='signup' component={SignUpScreen} />
         {/* <Stack.Screen name='modal' component={CustomModal} /> */}
         <Stack.Screen name='tab' component={BottomTab} />

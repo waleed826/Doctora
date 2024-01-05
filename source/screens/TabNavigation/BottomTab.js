@@ -3,6 +3,10 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../HomeScreen';
 import ProfileScreen from '../ProfileScreen';
+import CalendarScreen from '../CalendarScreen';
+import MessageScreen from '../MessageScreen';
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import theme from '../../utils/styles';
 
 const Tab = createBottomTabNavigator();
 
@@ -12,7 +16,7 @@ const BottomTab = () => {
     <Tab.Navigator initialRouteName='home'
     screenOptions={{
         headerShown: false,
-        
+        tabBarShowLabel:false,
         // tabBarActiveTintColor: 'white',
         // tabBarInactiveTintColor: 'gray',
         // tabBarActiveBackgroundColor: 'black',
@@ -25,8 +29,49 @@ const BottomTab = () => {
         // },
     }}
     >
-      <Tab.Screen name="home" component={HomeScreen} />
-      <Tab.Screen name="profile" component={ProfileScreen} />
+      <Tab.Screen name="home" component={HomeScreen}
+      options={{
+        tabBarIcon: ({ focused }) => {
+          return (
+              <View style={{}}>
+                  <Ionicons color={focused ? theme.colors.secondry:'gray' } name={focused ? 'home':'home-outline' } size={focused ? 35:25} />
+              </View>
+          )
+      },
+      }} />
+      <Tab.Screen name="message" component={MessageScreen} 
+      options={{
+        tabBarIcon: ({ focused }) => {
+          return (
+              <View style={{}}>
+                  <Ionicons color={focused ? theme.colors.secondry:'gray' } name={focused ? 'mail':'mail-outline' } size={focused ? 35:25} />
+              </View>
+          )
+      },
+      }}
+      />
+      <Tab.Screen name='calendar' component={CalendarScreen}
+      options={{
+        tabBarIcon: ({ focused }) => {
+          return (
+              <View style={{}}>
+                  <Ionicons color={focused ? theme.colors.secondry:'gray' } name={focused ? 'calendar-sharp':'calendar-outline' } size={focused ? 35:25} />
+              </View>
+          )
+      },
+      }}
+      />
+      <Tab.Screen name="profile" component={ProfileScreen} 
+      options={{
+        tabBarIcon: ({ focused }) => {
+          return (
+              <View style={{}}>
+                  <Ionicons color={focused ? theme.colors.secondry:'gray' } name={focused ? 'person':'person-outline' } size={focused ? 35:25} />
+              </View>
+          )
+      },
+      }}
+      />
     </Tab.Navigator>
   )
 }

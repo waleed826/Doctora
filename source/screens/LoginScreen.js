@@ -8,11 +8,15 @@ import CustomButton from '../components/CustomButton'
 import AccountButton from '../components/AccountButton'
 import CustomModal from '../components/CustomModal';
 import auth from '@react-native-firebase/auth';
+import Line from '../components/Line'
 
 const LoginScreens = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalData, setModalData] = useState('');
   const [modalNameData, setModalNameData] = useState('');
+
+  const [email,setEmail] = useState();
+  const [password,setPassword]= useState();
 
 //   const array = {
 //     id:1,
@@ -72,17 +76,18 @@ const LoginScreens = ({ navigation }) => {
       </View>
       <View style={{ alignItems: 'center' }}>
         <CustomButton Text='Login' 
-        // onPress={()=>openModal()} 
-        onPress={()=>auth()}
+        onPress={()=>openModal()} 
+        // onPress={()=>auth()}
+        colors={theme.colors.primary}
         color={theme.colors.secondry} />
       </View>
       <Text style={{ color: 'rgba(113, 119, 132, 1)', textAlign: 'center' }}>Don’t have an account?<Text style={{ color: theme.colors.secondry }} onPress={() => navigation.navigate('signup')}> Sign Up</Text></Text>
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <View style={{ flex: 1, height: 1, backgroundColor: 'rgba(229, 231, 235, 1)', marginLeft: 40 }} />
+       <Line right={true}/>
         <View>
           <Text style={{ width: 50, textAlign: 'center', color: 'rgba(161, 168, 176, 1)' }}>OR</Text>
         </View>
-        <View style={{ flex: 1, height: 1, backgroundColor: 'rgba(229, 231, 235, 1)', marginRight: 40 }} />
+       <Line/>
       </View>
       <View style={{ alignItems: 'center', margin: 10 }}>
         <AccountButton name3='google' Text='Sign in with Google' color={'red'} />

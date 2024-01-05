@@ -4,10 +4,12 @@ import theme from '../utils/styles'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import CustomProfileButton from '../components/CustomProfileButton'
 import CustomModal from '../components/CustomModal'
+import FAQsModal from '../components/FAQsModal'
 
 
 const ProfileScreen = () => {
     const [modalVisible, setModalVisible] = useState(false);
+    const [faqsVisible, setFAQsVisible] = useState(false);
     const [modalData, setModalData] = useState('');
     const [modalNameData, setModalNameData] = useState('');
     const openModal = () => {
@@ -15,8 +17,16 @@ const ProfileScreen = () => {
         setModalNameData('profileScreen')
         setModalVisible(true);
       };
+    const openFAQs = () => {
+        setFAQsVisible(true);
+      };
       const closeModal = () => {
         setModalVisible(false);
+        
+      }
+      const closeFAQs = () => {
+        setFAQsVisible(false);
+       
       }
     return (
         <View style={{ flex: 1, zIndex: 1 }}>
@@ -27,8 +37,11 @@ const ProfileScreen = () => {
                 <CustomProfileButton name={'heart-outline'} Text={'My Saved'} color='rgba(25, 154, 142, 1)'  colors={theme.colors.tertiary}/>
                 <CustomProfileButton name={'document-text-outline'} Text={'Appointmnet'} color='rgba(25, 154, 142, 1)'  colors={theme.colors.tertiary}/>
                 <CustomProfileButton name={'wallet-outline'} Text={'Payment Method'} color='rgba(25, 154, 142, 1)'  colors={theme.colors.tertiary}/>
-                <CustomProfileButton name={'chatbubble-ellipses-outline'} Text={'FAQs'} color='rgba(25, 154, 142, 1)'  colors={theme.colors.tertiary}/>
+                <CustomProfileButton name={'chatbubble-ellipses-outline'} Text={'FAQs'} color='rgba(25, 154, 142, 1)'  colors={theme.colors.tertiary} onPress={()=>openFAQs()} />
                 <CustomProfileButton name={'alert-circle-outline'} Text={'Logout'} color='rgba(255, 92, 92, 1)' colors='rgba(255, 92, 92, 1)' onPress={()=>openModal()} />
+                <FAQsModal visible={faqsVisible} closeModal={closeFAQs} 
+                // customData={[modalNameData,modalData]} 
+                />
                 <CustomModal visible={modalVisible} closeModal={closeModal} customData={[modalNameData,modalData]}  />
             </View>
         </View>

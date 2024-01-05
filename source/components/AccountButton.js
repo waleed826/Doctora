@@ -18,8 +18,6 @@ const AccountButton = (props) => {
        {/* <View>
        <Entypo name={props.name1} size={30} color={'rgba(53, 119, 229, 1)'} />
        </View> */}
-       
-    
     <View>
     <Text style={styles.txt}>{props.Text}</Text>
     </View>
@@ -34,7 +32,7 @@ const styles = StyleSheet.create({
     txt:{
         color: 'black', 
         fontSize:15,
-        fontFamily:theme.fonts.semiBold
+        fontFamily:fonts.semiBold
         },
         touch:{
            borderWidth:1,

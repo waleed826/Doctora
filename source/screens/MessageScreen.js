@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const ome = () => {
+const MessageScreen = () => {
   return (
     <View>
-      <Text>ome</Text>
+      <Text>MessageScreen</Text>
     </View>
   )
 }
 
-export default ome
+export default MessageScreen
 
 const styles = StyleSheet.create({})

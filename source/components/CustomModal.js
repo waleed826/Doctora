@@ -6,22 +6,28 @@ import theme from '../utils/styles';
 import CustomButton from './CustomButton';
 import Modal from 'react-native-modal';
 import { useNavigation } from '@react-navigation/native';
-
+import auth from '@react-native-firebase/auth';
 
 
 const CustomModal = ({ customData, visible, closeModal }) => {
   const navigation = useNavigation()
   const loginButton = () => {
     closeModal()
-    navigation.replace('home')
+    navigation.replace('tab')
   }
   const signupButton = () => {
     closeModal()
     navigation.navigate('login')
   }
+  const cancelButton = () => {
+    closeModal()
+  }
   const logoutButton = () => {
     closeModal()
-    // navigation.replace('login')
+    auth()
+        .signOut()
+        .then(() => console.log('User signed out!'));
+    navigation.replace('login')
   }
 
 
@@ -60,13 +66,15 @@ const CustomModal = ({ customData, visible, closeModal }) => {
           null
         }
         {customData[0] == 'loginScreen' ?
-          <CustomButton Text='Go to home' color={theme.colors.secondry} onPress={loginButton} />
+          <CustomButton Text='Go to home' colors={theme.colors.primary} color={theme.colors.secondry} onPress={loginButton} />
           :
           null
         }
         {customData[0] == 'signupScreen' ?
 
-          <CustomButton Text='Login' color={theme.colors.secondry}
+          <CustomButton Text='Login'
+          colors={theme.colors.primary}
+          color={theme.colors.secondry}
             onPress={signupButton}
           />
           :
@@ -84,7 +92,7 @@ const CustomModal = ({ customData, visible, closeModal }) => {
               colors={theme.colors.primary}
             />
             <CustomButton Text='cancel' color={theme.colors.primary}
-              onPress={logoutButton}
+              onPress={cancelButton}
               colors={theme.colors.secondry}
             /></>
           :
