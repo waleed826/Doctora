@@ -1,8 +1,7 @@
 import { Button, View } from 'react-native';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import auth, {authState} from '@react-native-firebase/auth';
 import CustomTextInput from '../components/CustomTextInput';
-
 const SignUpScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -10,42 +9,45 @@ const SignUpScreen = () => {
     try {
       await auth().signOut();
       console.log('User signed out successfully!');
-      // Handle successful signout
     } catch (error) {
       console.error(error);
-      // Handle signout error
     }
   };
+  useEffect(() => {
+    const unsubscribe = auth().onAuthStateChanged((user) => {
+      if (user) {
+        console.log('User is signed in:|||||||==================>', user);
+      } else {
+        console.log('User is signed out<<<<<<<<<<<<<<>>>>>>>>>>');
+      }
+    });
+    return () => unsubscribe();
+  }, []); 
   auth().onAuthStateChanged((user) => {
     if (user) {
-      console.log('User is signed in:', user);
-      // Navigate to home screen or handle user data
-  
-      // Add a sign-out button or option
-      
+      console.log('User is signed in:*******>>>>>>>', user); 
     } else {
-      console.log('User is signed out');
-      // Navigate to login screen or handle guest state
+      console.log('User is signed out*********>>>>>>>');
     }
   });
   const handleSignup = async () => {
     try {
       await auth().createUserWithEmailAndPassword(email, password);
       console.log('User created successfully!');
-      // Navigate to home screen or handle successful signup
+      
     } catch (error) {
       console.error(error);
-      // Handle signup error
+      
     }
   };
 
   return (
-    // Your signup form UI
+    
     <View>
       <CustomTextInput  placeholder='Enter Your name' name='user' onChangeText={setEmail} />
          <CustomTextInput placeholder='Enter Your email' name='mail' onChangeText={setPassword} />
     <Button title="Sign Up" onPress={handleSignup} />
-    <Button title="Sign Out" onPress={() => handleSignout()} />
+    <Button title="Sign Out" onPress={handleSignout} />
     </View>
   );
 };
