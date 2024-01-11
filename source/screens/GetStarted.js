@@ -2,16 +2,16 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import theme from '../utils/styles'
 
-const GetStarted = ({navigation}) => {
+const GetStarted = ({ navigation }) => {
   return (
     <View style={styles.vew}>
       <View style={styles.viw}>
-        <Image source={require('../assets/images/Vector.png')} style={{width:100,height:100,}} />
+        <Image source={require('../assets/images/Vector.png')} style={{ width: 100, height: 100, }} />
         <Text style={styles.txt}>Medics</Text>
         <Text style={styles.txt1}>Let’s get started!</Text>
         <Text style={styles.txt2}>Login to enjoy the features we’ve provided, and stay healthy!</Text>
       </View>
-      <TouchableOpacity  onPress={()=>navigation.navigate('login')} style={[styles.touch, { backgroundColor: theme.colors.secondry }]}>
+      <TouchableOpacity onPress={() => navigation.navigate('login')} style={[styles.touch, { backgroundColor: theme.colors.secondry }]}>
         <Text style={[styles.txt3, { color: theme.colors.primary }]}>
           Login
         </Text>
@@ -28,32 +28,32 @@ const GetStarted = ({navigation}) => {
 export default GetStarted
 
 const styles = StyleSheet.create({
-  vew:{
-     flex: 1, 
-     justifyContent: 'center',
-     alignItems:'center'
+  vew: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
-viw:{
-alignItems:'center'
-},
-txt1:{
-  color: theme.colors.tertiary,
+  viw: {
+    alignItems: 'center'
+  },
+  txt1: {
+    color: theme.colors.tertiary,
     fontFamily: theme.fonts.bold,
-    fontSize:20,
-    margin:4,
-},
+    fontSize: 20,
+    margin: 4,
+  },
 
   txt: {
     color: theme.colors.secondry,
     fontFamily: theme.fonts.bold,
-    fontSize:30,
-    margin:4,
+    fontSize: 30,
+    margin: 4,
   },
   txt2: {
     fontFamily: theme.fonts.medium,
-    marginHorizontal:15,
-    textAlign:'center',
-    margin:5,
+    marginHorizontal: 15,
+    textAlign: 'center',
+    margin: 5,
   },
   touch: {
     borderWidth: 1,
@@ -61,7 +61,7 @@ txt1:{
     padding: 10,
     margin: 10,
     marginHorizontal: 20,
-    width:'70%',
+    width: '70%',
     borderRadius: 30
   },
   txt3: {

@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     txt:{
         color: 'black', 
         fontSize:15,
-        fontFamily:fonts.semiBold
+        fontFamily:theme.fonts.semiBold
         },
         touch:{
            borderWidth:1,

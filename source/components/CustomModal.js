@@ -6,7 +6,8 @@ import theme from '../utils/styles';
 import CustomButton from './CustomButton';
 import Modal from 'react-native-modal';
 import { useNavigation } from '@react-navigation/native';
-import auth from '@react-native-firebase/auth';
+import {getAuth, signOut} from '@react-native-firebase/auth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const CustomModal = ({ customData, visible, closeModal }) => {
@@ -24,10 +25,12 @@ const CustomModal = ({ customData, visible, closeModal }) => {
   }
   const logoutButton = () => {
     closeModal()
-    auth()
-        .signOut()
-        .then(() => console.log('User signed out!'));
-    navigation.replace('login')
+    const auth =getAuth();
+        signOut(auth).then(
+console.log('logoutsuccesfully'),
+AsyncStorage.removeItem('@logedIn'),
+navigation.replace('login')
+        )
   }
 
 
