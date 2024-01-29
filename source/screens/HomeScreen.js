@@ -1,5 +1,5 @@
 import { Alert, FlatList, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import Feather from 'react-native-vector-icons/Feather'
 import theme from '../utils/styles'
 import CustomTextInput from '../components/CustomTextInput'
@@ -25,12 +25,15 @@ const HomeScreen = () => {
     { Img: require('../assets/images/DCF.png'), heading1: 'Dr. Diandra', heading2: 'Orthopedist', icon: 'star', rating: '4,7', icons: 'location-on', Distance: '800m away' },
   ]
   return (
-    <ScrollView contentContainerStyle={{ backgroundColor: theme.colors.primary, }}>
-      <View style={{ flexDirection: 'row', alignItems: 'center', marginHorizontal: 20, paddingVertical: 20 }}>
+    <ScrollView contentContainerStyle={{ backgroundColor: theme.colors.primary }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', marginHorizontal: 20, paddingVertical: 20,justifyContent:'space-between' }}>
         <Text style={styles.text}>Find your desire health solution</Text>
         <Feather name={'bell'} size={30} color={theme.colors.tertiary} />
       </View>
+      <View style={{alignItems:'center'}}>
+
       <CustomTextInput placeholder={'Search doctor, drugs, articles...'} name={'search'} />
+      </View>
       <View style={styles.categoryView}>
         <CustomCategories Text={'Doctor'} require={require('../assets/images/Doctor.png')} />
         <CustomCategories Text={'Pharmacy'} require={require('../assets/images/Pharmacy.png')} />
@@ -46,10 +49,10 @@ const HomeScreen = () => {
         <Image source={require('../assets/images/DCA.png')} />
         {/* </View> */}
       </View>
-      <View style={styles.headingview}>
+      <View style={[styles.headingview]}>
         <Text style={styles.lefthead}>Top Doctor</Text>
         <Text style={styles.righthead} onPress={openModal}>See all</Text>
-        <DrListCumponent visible={modalVisible} closeModal={closeModal} 
+        <DrListCumponent visible={modalVisible} closeModal={closeModal}
         // customData={[modalNameData, modalData]} 
         />
       </View>
@@ -122,8 +125,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 20,
     padding: 10,
-    alignItems:'center',
-    opacity:9,
+    alignItems: 'center',
+    opacity: 9,
   },
   flathead1: {
     fontFamily: theme.fonts.medium,
@@ -135,7 +138,7 @@ const styles = StyleSheet.create({
   flathead2: {
     color: 'rgba(173, 173, 173, 1)',
 
-    fontFamily:theme.fonts.semiBold,
+    fontFamily: theme.fonts.semiBold,
     fontSize: 11,
     fontWeight: '500',
   },
@@ -144,37 +147,37 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginHorizontal: 20,
     marginTop: 15,
+    flex: 1,
   },
   lefthead: {
     color: theme.colors.tertiary,
     fontFamily: theme.fonts.bold,
     fontSize: 16,
-    // fon?t-style: normal;
-    // font-weight: 600;
-    // line-height: normal;
+    marginRight:20,
   },
   righthead: {
     color: theme.colors.secondry,
 
     // font-family: Inter;
+  
     fontSize: 14,
     // font-style: normal;
     fontWeight: '400',
   },
-  RLView:{
-    flexDirection:'row',
+  RLView: {
+    flexDirection: 'row',
   },
-  ratingview:{
-    flexDirection:'row',
-    alignItems:'center',
-    backgroundColor:'rgba(232, 243, 241, 1)',
-    padding:4,
-    margin:4,
-    borderRadius:5
+  ratingview: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(232, 243, 241, 1)',
+    padding: 4,
+    margin: 4,
+    borderRadius: 5
   },
-  locationview:{
-    flexDirection:'row',
-    alignItems:'center',
-    margin:5,
+  locationview: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    margin: 5,
   },
 })

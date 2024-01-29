@@ -10,6 +10,8 @@ import SignUpScreen from './source/screens/SignUpScreen';
 import HomeScreen from './source/screens/HomeScreen';
 import CustomModal from './source/components/CustomModal';
 import BottomTab from './source/screens/TabNavigation/BottomTab';
+import FindDoctors from './source/screens/DoctorDtails/FindDoctors';
+import DoctorDteils from './source/screens/DoctorDtails/DoctorDteils';
 
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -34,6 +36,8 @@ const App = () => {
         {/* <Stack.Screen name='modal' component={CustomModal} /> */}
         <Stack.Screen name='tab' component={BottomTab} />
         <Stack.Screen name='home' component={HomeScreen} />
+        <Stack.Screen name='find' component={FindDoctors} />
+        <Stack.Screen name='details' component={DoctorDteils} />
       </Stack.Navigator>
     </NavigationContainer>
   )

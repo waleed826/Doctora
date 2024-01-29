@@ -8,19 +8,19 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 const AccountButton = (props) => {
   return (
     <TouchableOpacity style={styles.touch} >
-       
-       {/* <View>
+
+      {/* <View>
        <Fontisto name={props.name2} size={30} color='red'/>
        </View> */}
-       <View>
-       <MaterialCommunityIcons  name={props.name3} size={30} color={props.color}/>
-       </View>
-       {/* <View>
+      <View>
+        <MaterialCommunityIcons name={props.name3} size={30} color={props.color} />
+      </View>
+      {/* <View>
        <Entypo name={props.name1} size={30} color={'rgba(53, 119, 229, 1)'} />
        </View> */}
-    <View>
-    <Text style={styles.txt}>{props.Text}</Text>
-    </View>
+      <View>
+        <Text style={styles.txt}>{props.Text}</Text>
+      </View>
 
     </TouchableOpacity>
   )
@@ -29,20 +29,21 @@ const AccountButton = (props) => {
 export default AccountButton
 
 const styles = StyleSheet.create({
-    txt:{
-        color: 'black', 
-        fontSize:15,
-        fontFamily:theme.fonts.semiBold
-        },
-        touch:{
-           borderWidth:1,
-           borderColor: 'rgba(229, 231, 235, 1)', 
-           height: 60,
-           width:'90%', 
-           justifyContent: 'space-evenly',
-           alignItems:'center', 
-           margin:10, 
-           borderRadius: 30,
-           flexDirection:'row'
-        },
+  txt: {
+    color: 'black',
+    fontSize: 15,
+    fontFamily: theme.fonts.semiBold
+  },
+  touch: {
+    borderWidth: 1,
+    borderColor: 'rgba(229, 231, 235, 1)',
+    height: 60,
+    width: '90%',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    margin: 10,
+    borderRadius: 30,
+    flexDirection: 'row',
+    opacity: 9,
+  },
 })
