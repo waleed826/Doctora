@@ -7,7 +7,7 @@ const GetStarted = ({ navigation }) => {
     <View style={styles.vew}>
       <View style={styles.viw}>
         <Image source={require('../assets/images/Vector.png')} style={{ width: 100, height: 100, }} />
-        <Text style={styles.txt}>Medics</Text>
+        <Text style={styles.txt}>Doctora</Text>
         <Text style={styles.txt1}>Let’s get started!</Text>
         <Text style={styles.txt2}>Login to enjoy the features we’ve provided, and stay healthy!</Text>
       </View>

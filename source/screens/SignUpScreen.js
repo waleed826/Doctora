@@ -163,7 +163,7 @@ const SignUpScreen = ({ navigation }) => {
       <View style={{ alignItems: 'center' }}>
         <CustomButton Text='Sign Up' colors={theme.colors.primary} color={theme.colors.secondry} onPress={signUp} />
       </View>
-      <Text style={{ color: 'rgba(113, 119, 132, 1)', textAlign: 'center' }}>Don’t have an account?<Text style={{ color: theme.colors.secondry }}> Sign Up</Text></Text>
+      <Text style={{ color: 'rgba(113, 119, 132, 1)', textAlign: 'center' }}>Don’t have an account?<Text style={{ color: theme.colors.secondry }}> Login</Text></Text>
     </KeyboardAwareScrollView>
   )
 }
