@@ -43,7 +43,7 @@ const LoginScreens = ({ navigation }) => {
       }
     } catch (error) {
       Alert.alert('Invalid Credentials');
-      Alert.alert('Error', error.message);
+      // Alert.alert('Error', error.message);
     }
   };
 
@@ -73,7 +73,7 @@ const LoginScreens = ({ navigation }) => {
       </View>
       <View style={{}}>
         <Text style={styles.txt} 
-        onPress={() => Alert.alert('added soon')}>Forgot Password?</Text>
+        onPress={() => navigation.navigate('fpass')}>Forgot Password?</Text>
       </View>
       <View style={{ alignItems: 'center' }}>
         <CustomButton Text='Login'
@@ -83,7 +83,8 @@ const LoginScreens = ({ navigation }) => {
           colors={theme.colors.primary}
           color={theme.colors.secondry} />
       </View>
-      <Text style={{ color: 'rgba(113, 119, 132, 1)', textAlign: 'center' }}>Don’t have an account?<Text style={{ color: theme.colors.secondry }} onPress={() => navigation.navigate('signup')}> Sign Up</Text></Text>
+      <Text style={{ color: 'rgba(113, 119, 132, 1)', textAlign: 'center' }}>Don’t have an account?
+      <Text style={{ color: theme.colors.secondry }} onPress={() => navigation.navigate('signup')}> Sign Up</Text></Text>
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         <Line right={true} />
         <View>

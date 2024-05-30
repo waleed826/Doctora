@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SplashScreen from './source/screens/SplashScreen';
@@ -12,6 +12,9 @@ import CustomModal from './source/components/CustomModal';
 import BottomTab from './source/screens/TabNavigation/BottomTab';
 import FindDoctors from './source/screens/DoctorDtails/FindDoctors';
 import DoctorDteils from './source/screens/DoctorDtails/DoctorDteils';
+import ForgetPassword from './source/screens/ForgetPassword';
+import VerifyCode from './source/screens/VerifyCode';
+import NewPassword from './source/screens/NewPassword';
 
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -29,11 +32,12 @@ const App = () => {
           :
           <Stack.Screen name='onboard' component={OnboardingScreens}  />
         }
-        {/* <Stack.Group children={CustomModal} navigationKey='modal'/> */}
         <Stack.Screen name='started' component={GetStarted} />
         <Stack.Screen name='login' component={LoginScreens} />
+        <Stack.Screen name='fpass' component={ForgetPassword} />
+        <Stack.Screen name='veirfycode' component={VerifyCode} />
+        <Stack.Screen name='newpassword' component={NewPassword} />
         <Stack.Screen name='signup' component={SignUpScreen} />
-        {/* <Stack.Screen name='modal' component={CustomModal} /> */}
         <Stack.Screen name='tab' component={BottomTab} />
         <Stack.Screen name='home' component={HomeScreen} />
         <Stack.Screen name='find' component={FindDoctors} />
